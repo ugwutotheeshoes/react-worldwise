@@ -61,30 +61,6 @@
       "id": 98443200
     },
     {
-      "cityName": "Slim",
-      "country": "Algeria",
-      "emoji": "🇩🇿",
-      "date": "2023-12-03T17:08:14.936Z",
-      "notes": "hahahan",
-      "position": {
-        "lat": "34.92197103616377",
-        "lng": "3.7353515625000004"
-      },
-      "id": 98443201
-    },
-    {
-      "cityName": "Sidi Taifour",
-      "country": "Algeria",
-      "emoji": "🇩🇿",
-      "date": "2023-10-16T17:56:50.000Z",
-      "notes": "This was a great day",
-      "position": {
-        "lat": "33.486435450999885",
-        "lng": "1.7138671875000002"
-      },
-      "id": 98443202
-    },
-    {
       "cityName": "Sudeichsfeld",
       "country": "Germany",
       "emoji": "🇩🇪",
@@ -95,18 +71,6 @@
         "lng": "10.305175781250002"
       },
       "id": 98443203
-    },
-    {
-      "cityName": "Kumanovo",
-      "country": "North Macedonia",
-      "emoji": "🇲🇰",
-      "date": "2023-12-03T17:58:36.308Z",
-      "notes": "Unknown bastards",
-      "position": {
-        "lat": "42.09822241118974",
-        "lng": "21.665039062500004"
-      },
-      "id": 98443204
     }
   ]
 }
