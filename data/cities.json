@@ -35,6 +35,30 @@
         "lng": 13.376933665713324
       },
       "id": 98443197
+    },
+    {
+      "cityName": "Neuvy-le-Barrois",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "2023-12-03T16:59:31.780Z",
+      "notes": "",
+      "position": {
+        "lat": "46.84516443029276",
+        "lng": "2.9882812500000004"
+      },
+      "id": 98443198
+    },
+    {
+      "cityName": "Neuvy-le-Barrois",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "2023-12-03T16:59:31.780Z",
+      "notes": "Had a great time",
+      "position": {
+        "lat": "46.84516443029276",
+        "lng": "2.9882812500000004"
+      },
+      "id": 98443199
     }
   ]
 }
