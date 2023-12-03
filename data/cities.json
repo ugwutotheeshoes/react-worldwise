@@ -49,16 +49,64 @@
       "id": 98443198
     },
     {
-      "cityName": "Neuvy-le-Barrois",
-      "country": "France",
-      "emoji": "🇫🇷",
-      "date": "2023-12-03T16:59:31.780Z",
-      "notes": "Had a great time",
+      "cityName": "Menarguens",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2023-12-03T17:05:07.940Z",
+      "notes": "",
       "position": {
-        "lat": "46.84516443029276",
-        "lng": "2.9882812500000004"
+        "lat": "41.73852846935917",
+        "lng": "0.7470703125000001"
       },
-      "id": 98443199
+      "id": 98443200
+    },
+    {
+      "cityName": "Slim",
+      "country": "Algeria",
+      "emoji": "🇩🇿",
+      "date": "2023-12-03T17:08:14.936Z",
+      "notes": "hahahan",
+      "position": {
+        "lat": "34.92197103616377",
+        "lng": "3.7353515625000004"
+      },
+      "id": 98443201
+    },
+    {
+      "cityName": "Sidi Taifour",
+      "country": "Algeria",
+      "emoji": "🇩🇿",
+      "date": "2023-10-16T17:56:50.000Z",
+      "notes": "This was a great day",
+      "position": {
+        "lat": "33.486435450999885",
+        "lng": "1.7138671875000002"
+      },
+      "id": 98443202
+    },
+    {
+      "cityName": "Sudeichsfeld",
+      "country": "Germany",
+      "emoji": "🇩🇪",
+      "date": "2023-12-03T17:57:55.695Z",
+      "notes": "Nazi fuckers",
+      "position": {
+        "lat": "51.193115244645874",
+        "lng": "10.305175781250002"
+      },
+      "id": 98443203
+    },
+    {
+      "cityName": "Kumanovo",
+      "country": "North Macedonia",
+      "emoji": "🇲🇰",
+      "date": "2023-12-03T17:58:36.308Z",
+      "notes": "Unknown bastards",
+      "position": {
+        "lat": "42.09822241118974",
+        "lng": "21.665039062500004"
+      },
+      "id": 98443204
     }
   ]
 }
