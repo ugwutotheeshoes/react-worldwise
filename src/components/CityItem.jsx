@@ -11,18 +11,19 @@ const formatDate = (date) =>
 
 function CityItem({ city }) {
   const { currentCity, deleteCity } = useCities();
-  const { cityName, emoji, date, id, position } = city;
+  const { cityName, emoji, date, id, position } = city;  
   const flagemojiToPNG = (flag) => {
-    var countryCode = Array.from(flag, (codeUnit) => codeUnit.codePointAt())
-      .map((char) => String.fromCharCode(char - 127397).toLowerCase())
-      .join("");
+    // var countryCode = Array.from(flag, (codeUnit) => codeUnit.codePointAt())
+    //   .map((char) => String.fromCharCode(char - 127397).toLowerCase())
+    //   .join("");
     return (
-      <img src={`https://flagcdn.com/24x18/${countryCode}.png`} alt="flag" />
+      <img src={`https://flagcdn.com/24x18/${flag}.png`} alt="flag" />
     );
   };
   function handleClick(e) {
     e.preventDefault();
     deleteCity(id);
+    console.log(id);
   }
   return (
     <li>

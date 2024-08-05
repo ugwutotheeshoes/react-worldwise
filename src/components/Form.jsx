@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 // "https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=0&longitude=0"
 
 import { useEffect, useState } from "react";
@@ -14,18 +15,16 @@ import { useNavigate } from "react-router-dom";
 
 export function convertToEmoji(countryCode) {
   const codePoints = countryCode
-    .toUpperCase()
-    .split("")
-    .map((char) => 127397 + char.charCodeAt());
-  return String.fromCodePoint(...codePoints);
+    .toLowerCase()
+  return codePoints
 }
 
 const flagemojiToPNG = (flag) => {
-  var countryCode = Array.from(flag, (codeUnit) => codeUnit.codePointAt())
-    .map((char) => String.fromCharCode(char - 127397).toLowerCase())
-    .join("");
+  // var countryCode = Array.from(flag, (codeUnit) => codeUnit.codePointAt())
+  //   .map((char) => String.fromCharCode(char - 127397).toLowerCase())
+  //   .join("");
   return (
-    <img src={`https://flagcdn.com/24x18/${countryCode}.png`} alt="flag" />
+    <img src={`https://flagcdn.com/24x18/${flag}.png`} alt="flag" />
   );
 };
 
@@ -41,6 +40,7 @@ function Form() {
   const [notes, setNotes] = useState("");
   const [isLoadingGeocoding, setIsLoadingGeocoding] = useState(false);
   const [emoji, setEmoji] = useState("");
+  const [id, setId] = useState("");
   const [geocodingError, setGeocodingError] = useState("");
 
   useEffect(
@@ -61,6 +61,7 @@ function Form() {
           setCityName(data.city || data.locality || "");
           setCountry(data.countryName);
           setEmoji(convertToEmoji(data.countryCode));
+          setId(Math.floor((Math.random() * 1000000) + 1))          
         } catch (error) {
           setGeocodingError(error.message);
         } finally {
@@ -79,6 +80,7 @@ function Form() {
       cityName,
       country,
       emoji,
+      id,
       date,
       notes,
       position: { lat, lng },

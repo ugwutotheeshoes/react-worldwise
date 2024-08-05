@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
@@ -16,16 +17,21 @@ const formatDate = (date) =>
 
 function City() {
   const { id } = useParams();
+  console.log(id);
+  
   const { getCity, currentCity, isLoading } = useCities();
   const { cityName, emoji, date, notes } = currentCity;
+  console.log(currentCity);
+  
 
   useEffect(() => {
     getCity(id);
   }, [id]);
+  
 
   const flagemojiToPNG = (flag) => {
-    var countryCode = Array.from(flag, (codeUnit) => codeUnit.codePointAt()).map(char => String.fromCharCode(char-127397).toLowerCase()).join('')
-    return (<img src={`https://flagcdn.com/24x18/${countryCode}.png`} alt='flag' />)
+    // var countryCode = Array.from(flag, (codeUnit) => codeUnit.codePointAt()).map(char => String.fromCharCode(char-127397).toLowerCase()).join('')
+    return (<img src={`https://flagcdn.com/24x18/${flag}.png`} alt='flag' />)
   }
 
 
@@ -35,7 +41,8 @@ function City() {
       <div className={styles.row}>
         <h6>City name</h6>
         <h3>
-          <span>{flagemojiToPNG(emoji)}</span> {cityName}
+          <span>{flagemojiToPNG(emoji)}</span> 
+          {cityName}
         </h3>
       </div>
 

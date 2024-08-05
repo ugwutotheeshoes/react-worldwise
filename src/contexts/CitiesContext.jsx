@@ -1,5 +1,7 @@
+/* eslint-disable react-refresh/only-export-components */
 import { useReducer } from "react";
 import { createContext, useEffect, useContext } from "react";
+import { citiesData } from "../hooks/data";
 
 const CitiesContext = createContext();
 
@@ -54,7 +56,7 @@ function reducer(state, action) {
   }
 }
 
-const BASE_URL = "http://localhost:8000";
+// const BASE_URL = "http://localhost:8000";
 
 function CitiesProvider({ children }) {
   const [{ cities, isLoading, currentCity }, dispatch] = useReducer(
@@ -69,9 +71,20 @@ function CitiesProvider({ children }) {
     async function fetchCities() {
       dispatch({ type: "loading" });
       try {
-        const res = await fetch(`${BASE_URL}/cities`);
-        const data = await res.json();
-        dispatch({ type: "cities/loaded", payload: data });
+        const currentCities = localStorage.getItem("cities");
+        if (currentCities) {
+          dispatch({
+            type: "cities/loaded",
+            payload: JSON.parse(currentCities),
+          });
+        } else {
+          const res = citiesData.cities;
+          localStorage.setItem("cities", JSON.stringify(res));
+          const data = localStorage.getItem("cities");
+          if (data) {
+            dispatch({ type: "cities/loaded", payload: JSON.parse(data) });
+          }
+        }
       } catch {
         dispatch({
           type: "rejected",
@@ -86,9 +99,10 @@ function CitiesProvider({ children }) {
     if (Number(id) === currentCity.id) return;
     dispatch({ type: "loading" });
     try {
-      const res = await fetch(`${BASE_URL}/cities/${id}`);
-      const data = await res.json();
-      dispatch({ type: "city/loaded", payload: data });
+      const cities = localStorage.getItem("cities");
+      const res = JSON.parse(cities);
+      const data = res.filter((city) => city.id === Number(id));
+      dispatch({ type: "city/loaded", payload: data[0] });
     } catch {
       dispatch({
         type: "rejected",
@@ -99,13 +113,16 @@ function CitiesProvider({ children }) {
   async function createCity(newCity) {
     dispatch({ type: "loading" });
     try {
-      const res = await fetch(`${BASE_URL}/cities`, {
-        method: "POST",
-        body: JSON.stringify(newCity),
-        headers: { "Content-Type": "application/json" },
-      });
-      const data = await res.json();
-      dispatch({ type: "city/created", payload: data });
+      // const res = await fetch(`${BASE_URL}/cities`, {
+      //   method: "POST",
+      //   body: JSON.stringify(newCity),
+      //   headers: { "Content-Type": "application/json" },
+      // });
+      const cities = localStorage.getItem("cities");
+      const res = JSON.parse(cities);
+      const data = [...res, newCity];
+      localStorage.setItem("cities", JSON.stringify(data));
+      dispatch({ type: "city/created", payload: newCity });
     } catch {
       dispatch({
         type: "rejected",
@@ -116,9 +133,13 @@ function CitiesProvider({ children }) {
   async function deleteCity(id) {
     dispatch({ type: "loading" });
     try {
-      await fetch(`${BASE_URL}/cities/${id}`, {
-        method: "DELETE",
-      });
+      // await fetch(`${BASE_URL}/cities/${id}`, {
+      //   method: "DELETE",
+      // });
+      const cities = localStorage.getItem("cities");
+      const res = JSON.parse(cities);
+      const data = res.filter((city) => city.id !== Number(id));
+      localStorage.setItem("cities", JSON.stringify(data));
       dispatch({ type: "city/deleted", payload: id });
     } catch {
       dispatch({
