@@ -8,6 +8,10 @@
   gap: 2rem;
 }
 
+.form input, form textarea{
+  color: var(--color-dark--0);
+}
+
 .row {
   display: flex;
   flex-direction: column;
@@ -23,7 +27,7 @@
 .flag {
   position: absolute;
   right: 1rem;
-  top: 2.7rem;
+  top: 4rem;
   font-size: 2.8rem;
 }
 

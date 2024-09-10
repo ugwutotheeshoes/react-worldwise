@@ -1,6 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
-import { useReducer } from "react";
-import { createContext, useEffect, useContext } from "react";
+import { createContext, useEffect, useContext, useReducer } from "react";
 import { citiesData } from "../hooks/data";
 
 const CitiesContext = createContext();
@@ -56,17 +55,11 @@ function reducer(state, action) {
   }
 }
 
-// const BASE_URL = "http://localhost:8000";
-
 function CitiesProvider({ children }) {
   const [{ cities, isLoading, currentCity }, dispatch] = useReducer(
     reducer,
     initialState
   );
-  //   const [cities, setCities] = useState([]);
-  //   const [isLoading, setIsLoading] = useState(false);
-  //   const [currentCity, setCurrentCity] = useState([]);
-
   useEffect(() => {
     async function fetchCities() {
       dispatch({ type: "loading" });
@@ -113,11 +106,6 @@ function CitiesProvider({ children }) {
   async function createCity(newCity) {
     dispatch({ type: "loading" });
     try {
-      // const res = await fetch(`${BASE_URL}/cities`, {
-      //   method: "POST",
-      //   body: JSON.stringify(newCity),
-      //   headers: { "Content-Type": "application/json" },
-      // });
       const cities = localStorage.getItem("cities");
       const res = JSON.parse(cities);
       const data = [...res, newCity];
@@ -133,9 +121,6 @@ function CitiesProvider({ children }) {
   async function deleteCity(id) {
     dispatch({ type: "loading" });
     try {
-      // await fetch(`${BASE_URL}/cities/${id}`, {
-      //   method: "DELETE",
-      // });
       const cities = localStorage.getItem("cities");
       const res = JSON.parse(cities);
       const data = res.filter((city) => city.id !== Number(id));

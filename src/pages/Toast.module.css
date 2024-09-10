@@ -1,0 +1,26 @@
+.toast {
+  /* opacity: ${props => (props.show ? 1 : 0)}; */
+  transition: opacity 0.5s ease-in-out;
+  box-shadow: '0 2px 10px rgba(0, 0, 0, 0.2)';
+  z-index: 1000;
+  /* position: fixed; */
+}
+
+.icon {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+}
+
+.icon--lg {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.success {
+  color: var(--color-brand--2);
+}
+
+.error {
+  color: var(--color-brand--3);
+}

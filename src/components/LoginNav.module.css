@@ -1,0 +1,25 @@
+.container a:link,
+.container a:visited {
+  text-decoration: none;
+  color: var(--color-light--2);
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+a:global(.active) {
+  color: var(--color-brand--2);
+}
+
+a.ctaLink:link,
+a.ctaLink:visited {
+  background-color: var(--color-brand--2);
+  color: var(--color-dark--0);
+  padding: 0.8rem 2rem;
+  border-radius: 7px;
+}
+
+hr {
+  transform: rotate(90deg);
+  width: 30px;
+}
