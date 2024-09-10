@@ -18,8 +18,6 @@ import { useGeolocation } from "../hooks/useGeolocation";
 import { useUrlPosition } from "../hooks/useUrlPosition";
 import Button from "./Button";
 import { useLayout } from "../contexts/LayoutContext";
-import { CiMapPin } from "react-icons/ci";
-import { ImCompass } from "react-icons/im";
 import { GiCompass } from "react-icons/gi";
 
 function Map() {
@@ -69,13 +67,11 @@ function Map() {
       {!cityTab && mapPosition && (
         <Button type="position" onClick={openCityTab}>
           Add City
-          {/* {isLoadingPosition ? "Loading..." : "Add City"} */}
         </Button>
       )}
 
       {/* {!geolocationPosition && ( */}
         <button className={styles.btn} onClick={getPosition}>
-          {/* {isLoadingPosition ? "Loading..." : "Add City"} */}
           <GiCompass />
         </button>
       {/* )} */}
@@ -85,9 +81,6 @@ function Map() {
         scrollWheelZoom={true}
         className={styles.map}
       >
-        {/* <Marker position={[mapPosition[0], mapPosition[1]]}>
-          <CiMapPin />
-        </Marker> */}
         <CircleMarker
           center={[mapPosition[0], mapPosition[1]]}
           pathOptions={redOptions}
