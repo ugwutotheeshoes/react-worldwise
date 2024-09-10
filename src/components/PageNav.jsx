@@ -3,9 +3,11 @@ import Logo from "./Logo";
 import styles from "./PageNav.module.css";
 import { FaBars, FaUserCircle } from "react-icons/fa";
 import { useLayout } from "../contexts/LayoutContext";
+import { useUsers } from "../contexts/UserContext";
 
 function PageNav() {
   const { openSideTab } = useLayout();
+  const { users } = useUsers();
 
   return (
     <nav
@@ -25,13 +27,15 @@ function PageNav() {
         <li>
           <NavLink to="/product">Product</NavLink>
         </li>
-        <li className="flex justify-center items-center gap-3">
-          <NavLink to="/login">
-            <span className="text-6xl">
-              <FaUserCircle />
-            </span>
-          </NavLink>
-        </li>
+        {!users && (
+          <li className="flex items-center justify-center gap-3">
+            <NavLink to="/login">
+              <span className="text-6xl">
+                <FaUserCircle />
+              </span>
+            </NavLink>
+          </li>
+        )}
       </ul>
       <button onClick={openSideTab} className="min-[1024px]:hidden text-3xl">
         <FaBars />

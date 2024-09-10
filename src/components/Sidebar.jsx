@@ -11,10 +11,12 @@ import { RiPriceTag3Line, RiProductHuntLine } from "react-icons/ri";
 import CitiesBar from "./CitiesBar";
 import { useUrlPosition } from "../hooks/useUrlPosition";
 import { useLayout } from "../contexts/LayoutContext";
+import { useUsers } from "../contexts/UserContext";
 
 function Sidebar() {
   const {openCityTab, cityTab} = useLayout()
 
+  const { users } = useUsers();
   const [loading, setLoading] = useState(false);
   const [lat, lng] = useUrlPosition();
 
@@ -58,11 +60,13 @@ function Sidebar() {
               <FaBoxOpen />
             </NavLink>
           </button>
+          {!users && (
           <button className="text-5xl">
             <NavLink to="/login">
               <FaUserCircle />
             </NavLink>
           </button>
+)}
         </div>
       )}
     </>
