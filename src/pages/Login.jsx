@@ -26,7 +26,7 @@ export default function Login() {
   }
 
   useEffect(() => {
-    if (users) navigate("/");
+    if (users) navigate("/app/cities");
   }, [users]);
 
   useEffect(() => {
